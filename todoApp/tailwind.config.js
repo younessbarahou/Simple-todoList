@@ -40,6 +40,9 @@ export default {
       light_desktop: 'url(./assets/bg-desktop-light.jpg)',
       dark_mobile: 'url(./assets/bg-mobile-dark.jpg)',
       dark_desktop: 'url(./assets/bg-desktop-dark.jpg)'
+    },
+    borderColor:{
+      grey: "hsl(233, 11%, 84%)"
     }
   },
   plugins: [],
