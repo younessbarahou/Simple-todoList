@@ -27,10 +27,19 @@ export default {
       normal: '18px'
     }},
     width: {
-      med: '98%'
+      med: '98%',
+      comp: '85%'
     },
     screens: {
-      'sm': '520px'
+      'sm': '520px',
+      // ssm is a special screen width for the background images
+      'ssm' : '376px'
+    },
+    backgroundImage:{
+      light_mobile: 'url(./assets/bg-mobile-light.jpg)',
+      light_desktop: 'url(./assets/bg-desktop-light.jpg)',
+      dark_mobile: 'url(./assets/bg-mobile-dark.jpg)',
+      dark_desktop: 'url(./assets/bg-desktop-dark.jpg)'
     }
   },
   plugins: [],
