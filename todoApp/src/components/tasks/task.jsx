@@ -6,7 +6,7 @@ export default function Task(props) {
   // main state (bool)
   const [status, ok] = useState(false);
   let completed_Light = (
-      <div className="relative top-24 bg-light-light_grey flex text-black justify-normal gap-4 sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+      <div className="relative top-24 bg-light-light_grey flex text-black rounded-t justify-normal gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
         <input
           type="checkbox"
           id="input"
@@ -27,11 +27,11 @@ export default function Task(props) {
         <p className="line-through opacity-60 shrink-1 pr-5 -left-4">
         {props.value}
         </p>
-        <img src={img} className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 sm:hidden"/>
+        <img src={img} className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4"/>
       </div>
     );
   let Ncompleted_Light = (
-    <div className="relative top-24 bg-light-light_grey flex text-black justify-normal gap-4 sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4  sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 bg-light-light_grey flex text-black justify-normal gap-4 sm:gap-0 border-b-sm rounded-t border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -42,12 +42,16 @@ export default function Task(props) {
         }}
       >
       </input>
-      <p className="shrink-1 pr-5 -left-4">{props.value} </p>
-      <img src={img} className="w-2 h-4 shrink-0 mt-1 absolute right-4 sm:hidden" />
+      <p className="shrink-1 pr-5 -left-4">{props.value}</p>
+      <img 
+      src={img} 
+      className="w-2 h-4 shrink-0 mt-1 absolute right-4"
+      //
+      />
     </div>
     )
   let completed_Dark = (
-    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal gap-4 sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -68,11 +72,11 @@ export default function Task(props) {
       <p className="line-through opacity-60 shrink-1 pr-5 -left-4">
       {props.value}
       </p>
-      <img src={img} className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 sm:hidden"/>
+      <img src={img} className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 "/>
     </div>
   );
   let Ncompleted_Dark = (
-    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal gap-4 sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -84,7 +88,7 @@ export default function Task(props) {
       >
       </input>
       <p className="shrink-1 pr-5 -left-4">{props.value} </p>
-      <img src={img} className="w-2 h-4 shrink-0 mt-1 absolute right-4 sm:hidden" />
+      <img src={img} className="w-2 h-4 shrink-0 mt-1 absolute right-4" />
     </div>
   );
   //final result

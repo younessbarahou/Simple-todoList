@@ -1,37 +1,59 @@
 import img from "../../assets/icon-cross.svg"
 import check from "../../assets/icon-check.svg"
-import React, { useState } from "react"
+import React, { useRef , useEffect} from "react"
 import "./task.css"
 export default function CreateTask(props) {
-  const [value, changeValue] = useState('');
-  // this function takes the value from the input and changes the state
-  function pullValue(event) {
-    changeValue(event.target.value);
+  const value = useRef('');
+  // this function takes the value from the input
+  function pullValue(e){
+    value.current = e.target.value;
+    value.current = value.current.trim();
+    console.log(value.current);
   }
-  let Ncompleted_Light = (
-    <div className="relative top-24 bg-light-light_grey flex gap-4 text-black sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4  sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative rounded-md">
-      <input type="checkbox" id="input" className="shrink-0 sm:mr-8"></input>
+  function pushValue(){
+      //let UpdatedList = props.list.push(value.current);
+        props.change(value.current);
+      console.log(`value "${value.current}" added to the array`);
+  }
+  let Create_Light =(
+    <div className="relative top-28 bg-light-light_grey flex gap-4 text-black sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4  sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative rounded-md">
+      <input  type="checkbox" id="input" className="shrink-0 sm:mr-8"></input>
       <input
+        autoComplete="off"
         className="shrink-1 outline-none bg-light-light_grey"
-        value={value}
+        ref = {value}
         onChange={pullValue}
+        onKeyDown={(e) => {
+          if (e.key == "Enter" && e.target.value){
+            pushValue();
+            e.target.value = null;
+          }
+        }}
         placeholder="create a new todo"
         id = "full-width"
       ></input>
+      
     </div>
   );
-  let Ncompleted_Dark = (
-    <div className="relative top-24 bg-dark-very_dark_blue flex gap-4 text-white sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative rounded-md">
+  let Create_Dark = (
+    <div className="relative top-28 bg-dark-very_dark_blue flex gap-4 text-white sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative rounded-md">
       <input type="checkbox" id="input" className="shrink-0 sm:mr-8"></input>
       <input
+        autoComplete="off"
         className="shrink-1 outline-none bg-dark-very_dark_blue"
-        value={value}
-        onChange={pullValue}
         placeholder="create a new todo"
         id = "full-width"
+        ref = {value}
+        onChange={pullValue}
+        onKeyDown={(e) => {
+          if (e.key == "Enter" && e.target.value){
+            pushValue();
+            e.target.value = null;
+          }
+        }}
       ></input>
     </div>
   );
   //final result
-  return props.theme == false ? Ncompleted_Light : Ncompleted_Dark;
+  return props.theme == false ? Create_Light : Create_Dark;
 }
