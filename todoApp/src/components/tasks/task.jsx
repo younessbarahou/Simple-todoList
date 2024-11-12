@@ -2,9 +2,8 @@ import img from "../../assets/icon-cross.svg";
 import check from "../../assets/icon-check.svg";
 import "./task.css";
 export default function Task(props){
-  // main state (bool)
   let completed_Light = (
-      <div className="relative top-24 bg-light-light_grey flex text-black rounded-t justify-normal gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+      <div className="relative top-24 bg-light-light_grey text-black flex rounded-t justify-normal gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
         <input
           type="checkbox"
           id="input"
@@ -29,7 +28,7 @@ export default function Task(props){
       </div>
     );
   let Ncompleted_Light = (
-    <div className="relative top-24 bg-light-light_grey flex text-black justify-normal gap-4 sm:gap-0 border-b-sm rounded-t border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 bg-light-light_grey flex justify-normal text-black gap-4 sm:gap-0 border-b-sm rounded-t border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"

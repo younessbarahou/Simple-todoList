@@ -1,6 +1,7 @@
 import Task from '../tasks/task.jsx'
 import CreateTask from '../tasks/createTask.jsx'
 import React , { useState , useEffect} from 'react'
+import Footer from '../footer/footer.jsx'
 //localStorage.clear()
 export default function TC(props){
     // check if the storage is void
@@ -10,10 +11,9 @@ export default function TC(props){
     });
     // this variable spread the tasks into the tasks container
     // here we send the li index as a props to the task
+        // !! 
     let spreadTasks = tasks.map((x) => 
-    <li key = {x.id}> <Task theme={props.theme} list ={tasks} id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);
-    // this hook waits for the final value of the state (asynchronus)
-    
+    <li key = {x.id}> <Task theme={props.theme} list ={tasks} id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);    
     // this function updates the state directly
     function UpdateList(t){
         setTask([...tasks,{id:Date.now(),text:t,status:false}]);
@@ -22,20 +22,27 @@ export default function TC(props){
         setTask(tasks.filter((x) => x.id != k));
         console.log(JSON.parse(localStorage.getItem("Update")))
     }
+    // !! 
     function SetStatus(i,s){
         setTask(tasks.map((task) => task.id == i ? {...task,status:s}: task));
         console.log(JSON.parse(localStorage.getItem("Update")))
     }
-    useEffect( () =>{
+    useEffect(() =>{
         localStorage.setItem("Update", JSON.stringify(tasks));
         console.log(localStorage.getItem("Update"));
       } , [tasks])
+      function NbrComp(){
+        let cte = 0;
+        tasks.map((x) => x.status == false ? cte++ : cte);
+        return cte;
+      }
     return(
     <>
         <CreateTask theme={props.theme} list={tasks} change={UpdateList}/>
         <ul className="mt-8">
             {spreadTasks}
         </ul>
+       <Footer completed={NbrComp}/>
     </>
     )
 }

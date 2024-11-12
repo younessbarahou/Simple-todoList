@@ -24,11 +24,13 @@ export default {
       }
     },
     fontSize: {
-      normal: '18px'
+      normal: '18px',
+      small: '14px'
     }},
     width: {
       med: '98%',
-      comp: '85%'
+      comp: '85%',
+      full : '100%'
     },
     screens: {
       'sm': '520px',
@@ -46,8 +48,7 @@ export default {
     },
     borderWidth:{
       sm: "1.3px"
-    }
-    
+    },  
   },
   plugins: [],
 }
