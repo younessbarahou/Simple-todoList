@@ -67,7 +67,7 @@ export default function Task(props){
       {props.value}
       </p>
       <img src={img} 
-      onClick={() => {props.remove(props.index); console.log(props.index)}}
+      onClick={() => {props.remove(props.id); console.log(props.id)}}
       className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 "/>
     </div>
   );

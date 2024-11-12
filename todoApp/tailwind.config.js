@@ -47,7 +47,7 @@ export default {
       grey: "hsl(233, 11%, 84%)"
     },
     borderWidth:{
-      sm: "1.3px"
+      sm: "0.8px"
     },  
   },
   plugins: [],
