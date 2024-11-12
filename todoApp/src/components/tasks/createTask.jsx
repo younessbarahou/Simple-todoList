@@ -3,21 +3,20 @@ import check from "../../assets/icon-check.svg"
 import React, { useRef , useEffect} from "react"
 import "./task.css"
 export default function CreateTask(props) {
-  const value = useRef('');
+  const value = useRef({text:''});
   // this function takes the value from the input
   function pullValue(e){
-    value.current = e.target.value;
-    value.current = value.current.trim();
-    console.log(value.current);
+    value.current.text = e.target.value;
+    value.current.text = value.current.text.trim();
   }
   function pushValue(){
       //let UpdatedList = props.list.push(value.current);
-        props.change(value.current);
-      console.log(`value "${value.current}" added to the array`);
+      props.change(value.current.text);
+      console.log(`value "${value.current.text}" added to the array`);
   }
-  let Create_Light =(
+  let Create_Light = (
     <div className="relative top-28 bg-light-light_grey flex gap-4 text-black sm:gap-0 border-b-2 border-grey pt-4 pb-4 pl-3 pr-4  sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative rounded-md">
-      <input  type="checkbox" id="input" className="shrink-0 sm:mr-8"></input>
+      <input type="checkbox" id="input" className="shrink-0 sm:mr-8"></input>
       <input
         autoComplete="off"
         className="shrink-1 outline-none bg-light-light_grey"
