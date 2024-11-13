@@ -27,6 +27,15 @@ export default {
       normal: '18px',
       small: '14px'
     }},
+    textColor: {
+      black: 'black',
+      white : 'white',
+      grey: 'hsl(236, 9%, 61%)',
+      blue: 'rgb(59 130 246)',
+      red: '#ed4747',
+      ddd: 'hsl(233, 14%, 35%)'
+
+    },
     width: {
       med: '98%',
       comp: '85%',
@@ -44,10 +53,26 @@ export default {
       dark_desktop: 'url(./assets/bg-desktop-dark.jpg)'
     },
     borderColor:{
-      grey: "hsl(233, 11%, 84%)"
+      grey: "hsl(236, 33%, 92%)",
+      dark: 'hsl(237, 14%, 26%)'
     },
+    animation: {
+            'text':'text 5s ease infinite',
+        },
+        keyframes: {
+            'text': {
+                '0%, 100%': {
+                   'background-size':'200% 200%',
+                    'background-position': 'left center'
+                },
+                '50%': {
+                   'background-size':'200% 200%',
+                    'background-position': 'right center'
+                }
+            },
+        },
     borderWidth:{
-      sm: "0.8px"
+      sm: "1px"
     },  
   },
   plugins: [],

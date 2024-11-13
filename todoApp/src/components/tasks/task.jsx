@@ -3,7 +3,7 @@ import check from "../../assets/icon-check.svg";
 import "./task.css";
 export default function Task(props){
   let completed_Light = (
-      <div className="relative top-24 bg-light-light_grey text-black flex rounded-t justify-normal gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+      <div className="relative top-24 hover:bg-light-light_grayish_blue duration-100 bg-light-light_grey text-ddd flex rounded-t justify-normal gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
         <input
           type="checkbox"
           id="input"
@@ -24,11 +24,11 @@ export default function Task(props){
         </p>
         <img src={img} 
         onClick={() => {props.remove(props.id); console.log(props.id)}}
-        className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4"/>
+        className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 hover:cursor-pointer"/>
       </div>
     );
   let Ncompleted_Light = (
-    <div className="relative top-24 bg-light-light_grey flex justify-normal text-black gap-4 sm:gap-0 border-b-sm rounded-t border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 duration-100 hover:bg-light-light_grayish_blue bg-light-light_grey flex justify-normal text-ddd gap-4 sm:gap-0 border-b-sm rounded-t border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -41,13 +41,13 @@ export default function Task(props){
       <p className="shrink-1 pr-5 -left-4">{props.value}</p>
       <img 
       src={img} 
-      className="w-2 h-4 shrink-0 mt-1 absolute right-4"
+      className="w-2 h-4 shrink-0 mt-1 absolute right-4 hover:cursor-pointer"
       onClick={() => {props.remove(props.id); console.log(props.id)}}
       />
     </div>
     )
   let completed_Dark = (
-    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 duration-100 hover:bg-dark-very_dark_grayish_blue_2 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-dark pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -68,11 +68,11 @@ export default function Task(props){
       </p>
       <img src={img} 
       onClick={() => {props.remove(props.id); console.log(props.id)}}
-      className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 "/>
+      className="w-2 h-4 shrink-0 mt-1 w-2 absolute right-4 hover:cursor-pointer"/>
     </div>
   );
   let Ncompleted_Dark = (
-    <div className="relative top-24 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-grey pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
+    <div className="relative top-24 duration-100 hover:bg-dark-very_dark_grayish_blue_2 bg-dark-very_dark_blue flex text-white justify-normal rounded-t gap-4 sm:gap-0 border-b-sm border-dark pt-4 pb-4 pl-3 pr-4 sm:max-w-xl sm:ml-auto sm:mr-auto sm:relative">
       <input
         type="checkbox"
         id="input"
@@ -85,7 +85,7 @@ export default function Task(props){
       <p className="shrink-1 pr-5 -left-4">{props.value} </p>
       <img src={img} 
       onClick={() => {props.remove(props.id)}}
-      className="w-2 h-4 shrink-0 mt-1 absolute right-4" />
+      className="w-2 h-4 shrink-0 mt-1 absolute right-4 hover:cursor-pointer" />
     </div>
   );
   //final result

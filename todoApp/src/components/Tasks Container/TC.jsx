@@ -2,23 +2,20 @@ import Task from '../tasks/task.jsx'
 import CreateTask from '../tasks/createTask.jsx'
 import React , { useState , useEffect} from 'react'
 import Footer from '../footer/footer.jsx'
-//localStorage.clear()
+import Swal from 'sweetalert2'
 export default function TC(props){
-    // check if the storage is void
     const [tasks,setTask] = useState(() => {
         const data = localStorage.getItem("Update");
         return data ? JSON.parse(data) : [];
     });
-    // this variable spread the tasks into the tasks container
-    // here we send the li index as a props to the task
-        // !! 
+    // !!
     const [spread,setSpread] = useState(0);
     let spreadTasksAll = tasks.map((x) => 
-    <li key = {x.id}> <Task theme={props.theme} list ={tasks} id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);
+    <li key = {x.id}> <Task theme={props.theme}  id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);
     let spreadTasksActive = tasks.filter((s) => s.status == false).map((x) => 
-        <li key = {x.id}> <Task theme={props.theme} list ={tasks} id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);    
+        <li key = {x.id}> <Task theme={props.theme}  id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/></li>);    
     let spreadTasksCompleted = tasks.filter((z) => z.status == true).map((x) => 
-        <li key = {x.id}> <Task theme={props.theme} list ={tasks} id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/> </li>);        
+        <li key = {x.id}> <Task theme={props.theme}  id={x.id} setStatus ={SetStatus} remove={RemoveTask} status={x.status} value={x.text}/></li>);        
     // this function add tasks
     function UpdateList(t){
         setTask([...tasks,{id:Date.now(),text:t,status:false}]);
@@ -44,15 +41,28 @@ export default function TC(props){
       }
       // remove all checked tasks
     function ClearComp(){
-        setTask(tasks.filter((task) => task.status == false));
+        Swal.fire({
+            title: 'Remove All Completed Tasks ?',
+            text: 'Can Not Undo This Step',
+            icon: 'question',
+            color: 'white',
+            background:'#25273c',
+            confirmButtonText: 'ok',
+            cancelButtonText : 'cancel',
+            showCancelButton: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                setTask(tasks.filter((task) => task.status == false));
+            }
+          });
     }
     function EditSpread(v){
         setSpread(v);
-    }
+    }  
     return(
     <>
         <CreateTask theme={props.theme} list={tasks} change={UpdateList}/>
-        <ul className="mt-8">
+        <ul className="mt-8 shadow-xl">
             {spread == 2 ? spreadTasksCompleted : spread == 1 ?spreadTasksActive : spreadTasksAll}
         </ul>
        <Footer completed={NbrComp} clearCompleted={ClearComp} theme={props.theme} spread={EditSpread}/>
